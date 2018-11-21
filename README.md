@@ -6,6 +6,8 @@
 
 ### Zero MiningCore
 
+https://demo.easymine.rocks/dashboard.html
+
 ### Features
 
 - Supports clusters of pools each running individual currencies
