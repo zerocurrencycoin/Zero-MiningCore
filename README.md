@@ -4,6 +4,8 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/coinfoundry/miningcore-docker.svg)]()
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
+### Zero MiningCore
+
 ### Features
 
 - Supports clusters of pools each running individual currencies
