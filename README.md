@@ -23,7 +23,7 @@ http://dash.easymine.rocks
 - Detailed per-pool logging to console & filesystem
 - Runs on Linux and Windows
 
-#### Zcash
+#### Zero
 
 - Pools needs to be configured with both a t-addr and z-addr (new configuration property "z-address" of the pool configuration element)
 - First configured zcashd daemon needs to control both the t-addr and the z-addr (have the private key)
