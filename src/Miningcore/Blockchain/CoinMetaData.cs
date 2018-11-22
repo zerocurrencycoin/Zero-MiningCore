@@ -24,6 +24,7 @@ namespace Miningcore.Blockchain
             { "ZCL", "t1MFU1vD3YKgsK6Uh8hW7UTY8mKAV2xVqBr" },
             { "ZEN", "znigQacfTvRiwD2TRhwkBHLNchQ2AZisD94" },
             { "BTG", "GRao6KHQ8a4GUjAZRVbeCLfRbSkJQQaeMg" },
+            { "ZER", "t1VqtnnBqkcpyQ1GFb2gjViHYsHs4V8qeN7" },
             { "XVG", "D5xPoHLM6HPkwWSqAweECTSQirJBmRjS8i" },
             { "XMR", "475YVJbPHPedudkhrcNp1wDcLMTGYusGPF5fqE7XjnragVLPdqbCHBdZg3dF4dN9hXMjjvGbykS6a77dTAQvGrpiQqHp2eH" },
             { "ETN", "etnkQJwBCjmR1MfkU8D355ZWxxLMhs8miPrtKHWN4U3uUowq9ugeKccVBoEG3n13n74us5AkT8tEoTog46w4HBgn8sMuBRhm9h" },
