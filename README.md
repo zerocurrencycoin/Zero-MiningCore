@@ -6,7 +6,7 @@
 
 ### Zero MiningCore
 
-http://demo.easymine.rocks/dashboard.html
+http://dash.easymine.rocks
 
 ### Features
 
