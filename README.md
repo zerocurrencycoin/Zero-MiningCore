@@ -6,7 +6,7 @@
 
 ### Zero MiningCore
 
-http://dash.easymine.rocks
+https://dash.easymine.rocks
 
 ### Features
 
