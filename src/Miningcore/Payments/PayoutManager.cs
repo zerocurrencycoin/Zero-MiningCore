@@ -143,7 +143,8 @@ namespace Miningcore.Payments
 
                     await cf.RunTx(async (con, tx) =>
                     {
-                        if (!block.Effort.HasValue)  // fill block effort if empty
+                        // fill block effort if empty
+                        if (!block.Effort.HasValue)
                             await CalculateBlockEffortAsync(pool, block, handler);
 
                         switch (block.Status)
@@ -153,7 +154,9 @@ namespace Miningcore.Payments
                                 // must generate balance records for all reward recipients instead
                                 var blockReward = await handler.UpdateBlockRewardBalancesAsync(con, tx, block, pool);
 
+                                // update share submitter balances through configured payout scheme
                                 await scheme.UpdateBalancesAsync(con, tx, pool, handler, block, blockReward);
+                                // finally update block status
                                 await blockRepo.UpdateBlockAsync(con, tx, block);
                                 break;
 

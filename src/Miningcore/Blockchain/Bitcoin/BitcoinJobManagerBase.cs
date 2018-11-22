@@ -255,7 +255,7 @@ namespace Miningcore.Blockchain.Bitcoin
                 var results = await daemon.ExecuteBatchAnyAsync(logger,
                     new DaemonCmd(BitcoinCommands.GetMiningInfo),
                     new DaemonCmd(BitcoinCommands.GetNetworkInfo),
-                    new DaemonCmd(BitcoinCommands.GetNetworkHashPS)
+					new DaemonCmd(BitcoinCommands.GetNetworkHashPS)
                 );
 
                 if (results.Any(x => x.Error != null))
@@ -269,10 +269,9 @@ namespace Miningcore.Blockchain.Bitcoin
                 var miningInfoResponse = results[0].Response.ToObject<MiningInfo>();
                 var networkInfoResponse = results[1].Response.ToObject<NetworkInfo>();
 
-				BlockchainStats.NetworkHashrate = miningInfoResponse.NetworkHashps;
+                BlockchainStats.NetworkHashrate = miningInfoResponse.NetworkHashps;
                 BlockchainStats.ConnectedPeers = networkInfoResponse.Connections;
-
-                // Fall back to alternative RPC if coin does not report Network HPS (Digibyte)
+				// Fall back to alternative RPC if coin does not report Network HPS
                 if (BlockchainStats.NetworkHashrate == 0 && results[2].Error == null)
                     BlockchainStats.NetworkHashrate = results[2].Response.Value<double>();
             }
@@ -586,7 +585,11 @@ namespace Miningcore.Blockchain.Bitcoin
         protected void ConfigureRewards()
         {
             // Donation to MiningCore development
-            if (network.NetworkType == NetworkType.Mainnet &&
+            // Minincore does not have DevDonation Address for ZERO
+            // Zero Dev Team does not need funding
+            // Value changed to testnet so it may be reverted easily later
+            // if (network.NetworkType == NetworkType.Mainnet &&
+            if (network.NetworkType == NetworkType.Testnet &&
                 DevDonation.Addresses.TryGetValue(poolConfig.Template.Symbol, out var address))
             {
                 poolConfig.RewardRecipients = poolConfig.RewardRecipients.Concat(new[]

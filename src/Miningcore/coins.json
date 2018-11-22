@@ -250,9 +250,9 @@
       },
       "shareMultiplier": 256,
       "hashrateMultiplier": 4,
-      "explorerBlockLink": "https://chainz.cryptoid.info/vtc/block.dws?$height$.htm",
-      "explorerTxLink": "https://chainz.cryptoid.info/vtc/tx.dws?{0}.htm",
-      "explorerAccountLink": "https://chainz.cryptoid.info/vtc/address.dws?{0}.htm"
+      "explorerBlockLink": "https://bchain.info/VTC/block/$height$",
+      "explorerTxLink": "https://bchain.info/VTC/tx/{0}",
+      "explorerAccountLink": "https://bchain.info/VTC/addr/{0}"
     },
     "globaltoken": {
       "name": "Globaltoken",
@@ -553,6 +553,7 @@
       },
       "shareMultiplier": 256,
       "hashrateMultiplier": 4,
+      "blockrewardMultiplier": 100,
       "explorerBlockLink": "https://verge-blockchain.info/block/$hash$",
       "explorerTxLink": "https://verge-blockchain.info/tx/{0}",
       "explorerAccountLink": "https://verge-blockchain.info/address/{0}"
@@ -579,6 +580,7 @@
       },
       "shareMultiplier": 65536,
       "hashrateMultiplier": 1.5,
+      "blockrewardMultiplier": 100,
       "explorerBlockLink": "https://verge-blockchain.info/block/$hash$",
       "explorerTxLink": "https://verge-blockchain.info/tx/{0}",
       "explorerAccountLink": "https://verge-blockchain.info/address/{0}"
@@ -603,6 +605,7 @@
         ]
       },
       "hashrateMultiplier": 2.55,
+      "blockrewardMultiplier": 100,
       "explorerBlockLink": "https://verge-blockchain.info/block/$hash$",
       "explorerTxLink": "https://verge-blockchain.info/tx/{0}",
       "explorerAccountLink": "https://verge-blockchain.info/address/{0}"
@@ -626,6 +629,7 @@
           }
         ]
       },
+      "blockrewardMultiplier": 100,
       "explorerBlockLink": "https://verge-blockchain.info/block/$hash$",
       "explorerTxLink": "https://verge-blockchain.info/tx/{0}",
       "explorerAccountLink": "https://verge-blockchain.info/address/{0}"
@@ -649,6 +653,7 @@
           }
         ]
       },
+      "blockrewardMultiplier": 100,
       "explorerBlockLink": "https://verge-blockchain.info/block/$hash$",
       "explorerTxLink": "https://verge-blockchain.info/tx/{0}",
       "explorerAccountLink": "https://verge-blockchain.info/address/{0}"
@@ -760,9 +765,11 @@
           ],
           "foundersRewardSubsidySlowStartInterval": 20000,
           "foundersRewardSubsidyHalvingInterval": 840000,
+          "overwinterTxBranchId": 1537743641,
           "overwinterActivationHeight": 347500,
           "overwinterTxVersion": 3,
           "overwinterTxVersionGroupId": 63210096,
+          "saplingTxBranchId": 1991772603,
           "saplingActivationHeight": 419200,
           "saplingTxVersion": 4,
           "saplingTxVersionGroupId": 2301567109
@@ -830,9 +837,11 @@
           ],
           "foundersRewardSubsidySlowStartInterval": 20000,
           "foundersRewardSubsidyHalvingInterval": 840000,
+          "overwinterTxBranchId": 1537743641,
           "overwinterActivationHeight": 207500,
           "overwinterTxVersion": 3,
           "overwinterTxVersionGroupId": 63210096,
+          "saplingTxBranchId": 1991772603,
           "saplingActivationHeight": 280000,
           "saplingTxVersion": 4,
           "saplingTxVersionGroupId": 2301567109
@@ -1168,6 +1177,101 @@
       "explorerBlockLink": "https://minexexplorer.com/blocks/view?hash=$hash$",
       "explorerTxLink": "https://minexexplorer.com/transactions/view?hash={0}",
       "explorerAccountLink": "https://minexexplorer.com/address?hash={0}"
+    },
+    "zero": {
+      "name": "Zero",
+      "symbol": "ZER",
+      "family": "equihash",
+      "networks": {
+        "main": {
+          "diff1": "0007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "solutionSize": 400,
+          "solutionPreambleSize": 3,
+          "solver": {
+            "hash": "equihash",
+            "args": [ 192, 7, "ZERO_PoW" ]
+          },
+          "coinbaseTxNetwork": "main",
+          "payFoundersReward": true,
+          "percentFoundersReward": 7.5,
+          "foundersRewardAddresses": [
+            "t3hmg6WApjqVFw9oPWTDy4JLEqXcUWthg5v",
+            "t3hrh5M7eaGA5zXCitPXz2pbe146GkVPWHs",
+            "t3aWmHqBGS7watoKQLa7uykeTaYHoYqM361",
+            "t3hsi89hPsZzmnbs3pny6cfAxMxV5TJLErj",
+            "t3TdGxPVUdMXd6qDrDCEuJETLadZ9Ki3s9r",
+            "t3cb5ZjKmbGbqDaYk97Auam9kXXikGQBmyY",
+            "t3V1YovGUPW9WSBoAHS48FDdUfUTo6LDpZR",
+            "t3KB9n28MVg31oo856t1tQGfJuYq8usTvSi",
+            "t3dqSV4YGj5V3WjQhqFGrKTMUf9Tgc6xnJM",
+            "t3aJkYT1i6tyytq8J6khPaDNtgZsBSXgfBf"
+          ],
+          "foundersRewardSubsidySlowStartInterval": 0,
+          "foundersRewardSubsidyHalvingInterval": 8000000,
+          "overwinterActivationHeight": 492850,
+          "overwinterTxBranchId": 1870033530,
+          "overwinterTxVersion": 3,
+          "overwinterTxVersionGroupId": 63210096,
+          "saplingActivationHeight": 492850,
+          "saplingTxBranchId": 1935765626,
+          "saplingTxVersion": 4,
+          "saplingTxVersionGroupId": 2301567109
+        },
+        "test": {
+          "diff1": "0007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "solutionSize": 400,
+          "solutionPreambleSize": 1,
+          "solver": {
+            "hash": "equihash",
+            "args": [ 192, 7, "ZERO_PoW" ]
+          },
+          "coinbaseTxNetwork": "test",
+          "payFoundersReward": true,
+          "percentFoundersReward": 20,
+          "foundersRewardAddresses": [
+            "t2BEnZwurNtPyhyWdZ82zTdS93rKyoUpgMJ",
+            "t2AwNRubry4rQrEvHwAdpYve4Gz5cSmjGXA",
+            "t2FM2EZqQZANA18rbhBGLWbxKcpGk9soAvS",
+            "t2TBZfnXRCmFPc3nSrQcNtnR6AGWNzF9hzz",
+            "t2QMyS1C3jXJ5hcR7zJTPSbWFvMWQEyjVTE",
+            "t2SxA3E34aZJDDxnUxC2gZXBVrXWuoH5v7W",
+            "t2FhR8STLvuKTUPgM586T1LMUG4JAHV2XSt",
+            "t2NScRwr3FHPN8fNSgMKn8ngZG2kgfC8JNt",
+            "t2LYZj3LiCDaCGUXQNXH1ZFPmHiC46wB9se",
+            "t28azskSALVTtgbW63CqDwzXgtWQ56GVVXa"
+          ],
+          "foundersRewardSubsidySlowStartInterval": 0,
+          "foundersRewardSubsidyHalvingInterval": 30000,
+          "overwinterTxBranchId": 1870033530,
+          "overwinterActivationHeight": 50,
+          "overwinterTxVersion": 3,
+          "overwinterTxVersionGroupId": 63210096,
+          "saplingActivationHeight": 50,
+          "saplingTxBranchId": 1935765626,
+          "saplingTxVersion": 4,
+          "saplingTxVersionGroupId": 2301567109
+        },
+        "regtest": {
+          "diff1": "0007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "solutionSize": 50,
+          "solutionPreambleSize": 3,
+          "solver": {
+            "hash": "equihash",
+            "args": [ 48, 5, "ZERO_PoW" ]
+          },
+          "coinbaseTxNetwork": "regtest",
+          "payFoundersReward": true,
+          "percentFoundersReward": 7.5,
+          "foundersRewardAddresses": [ "t2FwcEhFdNXuFMv1tcYwaBJtYVtMj8b1uTg" ],
+          "foundersRewardSubsidySlowStartInterval": 5000,
+          "foundersRewardSubsidyHalvingInterval": 10000
+        }
+      },
+      "usesZCashAddressFormat": true,
+      "useBitcoinPayoutHandler": false,
+      "explorerBlockLink": "https://zero.cryptonode.cloud/insight/block/$hash$",
+      "explorerTxLink": "https://zero.cryptonode.cloud/insight/tx/{0}",
+      "explorerAccountLink": "https://zero.cryptonode.cloud/insight/address/{0}"
     },
     "bitcoin-private": {
       "name": "Bitcoin Private",

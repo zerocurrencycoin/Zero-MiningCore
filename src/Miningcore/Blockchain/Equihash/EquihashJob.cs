@@ -58,6 +58,7 @@ namespace Miningcore.Blockchain.Equihash
         protected decimal blockReward;
         protected decimal rewardFees;
 
+        protected uint txVersionBranchId;
         protected uint txVersionGroupId;
         protected readonly IHashAlgorithm sha256D = new Sha256D();
         protected byte[] coinbaseInitialHash;
@@ -73,6 +74,7 @@ namespace Miningcore.Blockchain.Equihash
         // temporary reflection hack to force overwinter
         protected static readonly FieldInfo overwinterField = typeof(ZcashTransaction).GetField("fOverwintered", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
         protected static readonly FieldInfo versionGroupField = typeof(ZcashTransaction).GetField("nVersionGroupId", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
+        protected static readonly FieldInfo versionBranchField = typeof(ZcashTransaction).GetField("nVersionBranchId", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
 
         // serialization constants
         protected byte[] sha256Empty = new byte[32];
@@ -98,6 +100,7 @@ namespace Miningcore.Blockchain.Equihash
             {
                 overwinterField.SetValue(tx, true);
                 versionGroupField.SetValue(tx, txVersionGroupId);
+                versionBranchField.SetValue(tx, txVersionBranchId);
             }
 
             // calculate outputs
@@ -336,12 +339,14 @@ namespace Miningcore.Blockchain.Equihash
 
             // ZCash Sapling & Overwinter support
             isSaplingActive = chainConfig.SaplingActivationHeight.HasValue &&
+                chainConfig.SaplingTxBranchId.HasValue &&
                 chainConfig.SaplingTxVersion.HasValue &&
                 chainConfig.SaplingTxVersionGroupId.HasValue &&
                 chainConfig.SaplingActivationHeight.Value > 0 &&
                 blockTemplate.Height >= chainConfig.SaplingActivationHeight.Value;
 
             isOverwinterActive = isSaplingActive ||
+                chainConfig.OverwinterTxBranchId.HasValue &&
                 chainConfig.OverwinterTxVersion.HasValue &&
                 chainConfig.OverwinterTxVersionGroupId.HasValue &&
                 chainConfig.OverwinterActivationHeight.HasValue &&
@@ -350,12 +355,14 @@ namespace Miningcore.Blockchain.Equihash
 
             if (isSaplingActive)
             {
+                txVersionBranchId = chainConfig.SaplingTxBranchId.Value;
                 txVersion = chainConfig.SaplingTxVersion.Value;
                 txVersionGroupId = chainConfig.SaplingTxVersionGroupId.Value;
             }
 
             else if (isOverwinterActive)
             {
+                txVersionBranchId = chainConfig.OverwinterTxBranchId.Value;
                 txVersion = chainConfig.OverwinterTxVersion.Value;
                 txVersionGroupId = chainConfig.OverwinterTxVersionGroupId.Value;
             }

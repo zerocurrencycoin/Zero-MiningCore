@@ -190,6 +190,10 @@ namespace Miningcore.Configuration
             public double TreasuryRewardAddressChangeInterval { get; set; }
 
             // ZCash "Overwinter"
+
+            [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+            public uint? OverwinterTxBranchId { get; set; }
+
             [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
             public uint? OverwinterActivationHeight { get; set; }
 
@@ -200,6 +204,9 @@ namespace Miningcore.Configuration
             public uint? OverwinterTxVersionGroupId { get; set; }
 
             // ZCash "Sapling"
+            [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+            public uint? SaplingTxBranchId { get; set; }
+
             [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
             public uint? SaplingActivationHeight { get; set; }
 
