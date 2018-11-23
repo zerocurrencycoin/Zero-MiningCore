@@ -25,7 +25,7 @@ https://dash.easymine.rocks
 
 #### Zero
 
-- Pools needs to be configured with both a t-addr and z-addr (new configuration property "z-address" of the pool configuration element)
+- Pools need to be configured with both a t-addr and z-addr (new configuration property "z-address" of the pool configuration element)
 - First configured zerod daemon needs to control both the t-addr and the z-addr (have the private key)
 - To increase the share processing throughput it is advisable to increase the maximum number of concurrent equihash solvers through the new configuration property "equihashMaxThreads" of the cluster configuration element. Increasing this value by one increases the peak memory consumption of the pool cluster by 1 GB.
 - Miners may use both t-addresses and z-addresses when connecting to the pool
