@@ -74,7 +74,7 @@ namespace Miningcore.Blockchain.Equihash
         // temporary reflection hack to force overwinter
         protected static readonly FieldInfo overwinterField = typeof(ZcashTransaction).GetField("fOverwintered", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
         protected static readonly FieldInfo versionGroupField = typeof(ZcashTransaction).GetField("nVersionGroupId", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
-        protected static readonly FieldInfo versionBranchField = typeof(ZcashTransaction).GetField("nVersionBranchId", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
+        protected static readonly FieldInfo versionBranchField = typeof(ZcashTransaction).GetField("nBranchId", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
 
         // serialization constants
         protected byte[] sha256Empty = new byte[32];

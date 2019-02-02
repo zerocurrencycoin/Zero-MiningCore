@@ -48,7 +48,7 @@ CREATE TABLE balances
 	created TIMESTAMP NOT NULL,
 	updated TIMESTAMP NOT NULL,
 
-	primary key(poolid, address)
+	primary key(poolid, address, coin)
 );
 
 CREATE TABLE balance_changes

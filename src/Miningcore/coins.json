@@ -1191,7 +1191,7 @@
             "hash": "equihash",
             "args": [ 192, 7, "ZERO_PoW" ]
           },
-          "coinbaseTxNetwork": "main",
+          "coinbaseTxNetwork": "zcash-main",
           "payFoundersReward": true,
           "percentFoundersReward": 7.5,
           "foundersRewardAddresses": [
@@ -1225,7 +1225,7 @@
             "hash": "equihash",
             "args": [ 192, 7, "ZERO_PoW" ]
           },
-          "coinbaseTxNetwork": "test",
+          "coinbaseTxNetwork": "zcash-test",
           "payFoundersReward": true,
           "percentFoundersReward": 20,
           "foundersRewardAddresses": [
@@ -1259,7 +1259,7 @@
             "hash": "equihash",
             "args": [ 48, 5, "ZERO_PoW" ]
           },
-          "coinbaseTxNetwork": "regtest",
+          "coinbaseTxNetwork": "zcash-reg",
           "payFoundersReward": true,
           "percentFoundersReward": 7.5,
           "foundersRewardAddresses": [ "t2FwcEhFdNXuFMv1tcYwaBJtYVtMj8b1uTg" ],
