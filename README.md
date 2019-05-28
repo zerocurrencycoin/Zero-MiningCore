@@ -6,7 +6,7 @@
 
 ### Zero MiningCore
 
-https://dash.easymine.rocks
+https://pool.zerocurrency.io
 
 ### Features
 
@@ -34,7 +34,7 @@ https://dash.easymine.rocks
 
 ### Zeronode Enforcement
 - When zeronodes are enabled a the block subsity for masternodes will be a trickle.  Less than one day before the masternode enforcement blockheight a spork will be enabled on the zeronode network changing the Miner Reward to 7.83POW 2.16ZN(MN-POS).
-- Due the spork zeronodes will receive reward according to the live zero 3.0x daemon blocktemplate used on the cummunity pool.
+- Due the spork zeronodes will receive reward according to the live zero 3.0x daemon blocktemplate used on the community pool.
 - If you are using this privately and don't wish to pay any amount to zeronodes until enforcement is enabled change src/Miningcore/Blockchain/Equihash/Equihashjob.cs @line 128 to "if (coin.HasZeroNodes && BlockTemplate.ZeroNodePaymentsEnabled && BlockTemplate.ZeroNodePaymentsEnforced)"
 
 ### Runtime Requirements on Windows
