@@ -1182,6 +1182,7 @@
       "name": "Zero",
       "symbol": "ZER",
       "family": "equihash",
+      "hasZeroNodes": true,
       "networks": {
         "main": {
           "diff1": "0007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
@@ -1191,7 +1192,7 @@
             "hash": "equihash",
             "args": [ 192, 7, "ZERO_PoW" ]
           },
-          "coinbaseTxNetwork": "main",
+          "coinbaseTxNetwork": "zcash-main",
           "payFoundersReward": true,
           "percentFoundersReward": 7.5,
           "foundersRewardAddresses": [
@@ -1220,14 +1221,14 @@
         "test": {
           "diff1": "0007ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
           "solutionSize": 400,
-          "solutionPreambleSize": 1,
+          "solutionPreambleSize": 3,
           "solver": {
             "hash": "equihash",
             "args": [ 192, 7, "ZERO_PoW" ]
           },
-          "coinbaseTxNetwork": "test",
+          "coinbaseTxNetwork": "zcash-test",
           "payFoundersReward": true,
-          "percentFoundersReward": 20,
+          "percentFoundersReward": 7.5,
           "foundersRewardAddresses": [
             "t2BEnZwurNtPyhyWdZ82zTdS93rKyoUpgMJ",
             "t2AwNRubry4rQrEvHwAdpYve4Gz5cSmjGXA",
@@ -1241,7 +1242,7 @@
             "t28azskSALVTtgbW63CqDwzXgtWQ56GVVXa"
           ],
           "foundersRewardSubsidySlowStartInterval": 0,
-          "foundersRewardSubsidyHalvingInterval": 30000,
+          "foundersRewardSubsidyHalvingInterval": 800000,
           "overwinterTxBranchId": 1870033530,
           "overwinterActivationHeight": 50,
           "overwinterTxVersion": 3,
@@ -1259,7 +1260,7 @@
             "hash": "equihash",
             "args": [ 48, 5, "ZERO_PoW" ]
           },
-          "coinbaseTxNetwork": "regtest",
+          "coinbaseTxNetwork": "zcash-reg",
           "payFoundersReward": true,
           "percentFoundersReward": 7.5,
           "foundersRewardAddresses": [ "t2FwcEhFdNXuFMv1tcYwaBJtYVtMj8b1uTg" ],
@@ -1269,9 +1270,9 @@
       },
       "usesZCashAddressFormat": true,
       "useBitcoinPayoutHandler": false,
-      "explorerBlockLink": "https://zero.cryptonode.cloud/insight/block/$hash$",
-      "explorerTxLink": "https://zero.cryptonode.cloud/insight/tx/{0}",
-      "explorerAccountLink": "https://zero.cryptonode.cloud/insight/address/{0}"
+      "explorerBlockLink": "https://insight.zerocurrency.io/insight/block/$hash$",
+      "explorerTxLink": "https://insight.zerocurrency.io/insight/tx/{0}",
+      "explorerAccountLink": "https://insight.zerocurrency.io/insight/address/{0}"
     },
     "bitcoin-private": {
       "name": "Bitcoin Private",

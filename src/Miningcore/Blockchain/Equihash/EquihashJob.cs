@@ -74,7 +74,7 @@ namespace Miningcore.Blockchain.Equihash
         // temporary reflection hack to force overwinter
         protected static readonly FieldInfo overwinterField = typeof(ZcashTransaction).GetField("fOverwintered", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
         protected static readonly FieldInfo versionGroupField = typeof(ZcashTransaction).GetField("nVersionGroupId", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
-        protected static readonly FieldInfo versionBranchField = typeof(ZcashTransaction).GetField("nVersionBranchId", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
+        protected static readonly FieldInfo versionBranchField = typeof(ZcashTransaction).GetField("nBranchId", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.DeclaredOnly);
 
         // serialization constants
         protected byte[] sha256Empty = new byte[32];
@@ -124,14 +124,35 @@ namespace Miningcore.Blockchain.Equihash
 
                 else
                 {
-                    // pool reward (t-addr)
-                    rewardToPool = new Money(Math.Round(blockReward * (1m - (chainConfig.PercentFoundersReward) / 100m)) + rewardFees, MoneyUnit.Satoshi);
-                    tx.Outputs.Add(rewardToPool, poolAddressDestination);
+                    //zeronodes
+                    if (coin.HasZeroNodes && BlockTemplate.ZeroNodePaymentsEnabled)
+                    {
+                       // pool reward (t-addr)
+                       rewardToPool = new Money(Math.Round(blockReward * (1m - (chainConfig.PercentFoundersReward) / 100m)) - BlockTemplate.ZeroNodePayeeAmount + rewardFees, MoneyUnit.Satoshi);
+                       tx.Outputs.Add(rewardToPool, poolAddressDestination);
 
-                    // founders reward (t-addr)
-                    var destination = FoundersAddressToScriptDestination(GetFoundersRewardAddress());
-                    var amount = new Money(Math.Round(blockReward * (chainConfig.PercentFoundersReward / 100m)), MoneyUnit.Satoshi);
-                    tx.Outputs.Add(amount, destination);
+                       // founders reward (t-addr)
+                       var destination = FoundersAddressToScriptDestination(GetFoundersRewardAddress());
+                       var amount = new Money(Math.Round(blockReward * (chainConfig.PercentFoundersReward / 100m)), MoneyUnit.Satoshi);
+                       tx.Outputs.Add(amount, destination);
+
+                       // zeronode reward (t-addr)
+                       var nodedestination = ZeroNodeAddressToScriptDestination(BlockTemplate.ZeroNodePayee);
+                       var nodeamount = new Money(BlockTemplate.ZeroNodePayeeAmount, MoneyUnit.Satoshi);
+                       tx.Outputs.Add(nodeamount, nodedestination);
+
+                    }
+                    else
+                    {
+                       // pool reward (t-addr)
+                       rewardToPool = new Money(Math.Round(blockReward * (1m - (chainConfig.PercentFoundersReward) / 100m)) + rewardFees, MoneyUnit.Satoshi);
+                       tx.Outputs.Add(rewardToPool, poolAddressDestination);
+
+                       // founders reward (t-addr)
+                       var destination = FoundersAddressToScriptDestination(GetFoundersRewardAddress());
+                       var amount = new Money(Math.Round(blockReward * (chainConfig.PercentFoundersReward / 100m)), MoneyUnit.Satoshi);
+                       tx.Outputs.Add(amount, destination);
+                    }
                 }
             }
 
@@ -492,6 +513,13 @@ namespace Miningcore.Blockchain.Equihash
             var result = new ScriptId(hash);
             return result;
         }
+
+        public static IDestination ZeroNodeAddressToScriptDestination(string nodeaddress)
+        {
+            var zeronodeaddressresult = BitcoinUtils.AddressToDestination(nodeaddress, ZcashNetworks.Instance.Mainnet);
+            return zeronodeaddressresult;
+        }
+
 
         #endregion // API-Surface
     }
