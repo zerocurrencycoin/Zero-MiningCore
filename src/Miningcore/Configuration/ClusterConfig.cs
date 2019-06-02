@@ -215,6 +215,7 @@ namespace Miningcore.Configuration
 
             [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
             public uint? SaplingTxVersionGroupId { get; set; }
+
         }
 
         [JsonProperty(Order = -7, DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate)]
@@ -228,6 +229,10 @@ namespace Miningcore.Configuration
         /// <summary>
         /// Force use of BitcoinPayoutHandler instead of EquihashPayoutHandler
         /// </summary>
+
+        [JsonProperty(DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public bool HasZeroNodes { get; set; }
+
         public bool UseBitcoinPayoutHandler { get; set; }
     }
 

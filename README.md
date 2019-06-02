@@ -6,10 +6,11 @@
 
 ### Zero MiningCore
 
-https://dash.easymine.rocks
+https://pool.zerocurrency.io
 
 ### Features
 
+- Zeronode support
 - Supports clusters of pools each running individual currencies
 - Ultra-low-latency, multi-threaded Stratum implementation using asynchronous I/O
 - Adaptive share difficulty ("vardiff")
@@ -29,6 +30,12 @@ https://dash.easymine.rocks
 - First configured zerod daemon needs to control both the t-addr and the z-addr (have the private key)
 - To increase the share processing throughput it is advisable to increase the maximum number of concurrent equihash solvers through the new configuration property "equihashMaxThreads" of the cluster configuration element. Increasing this value by one increases the peak memory consumption of the pool cluster by 1 GB.
 - Miners may use both t-addresses and z-addresses when connecting to the pool
+
+
+### Zeronode Enforcement
+- When zeronodes are enabled a the block subsity for masternodes will be a trickle.  Less than one day before the masternode enforcement blockheight a spork will be enabled on the zeronode network changing the Miner Reward to 7.83POW 2.16ZN(MN-POS).
+- Due the spork zeronodes will receive reward according to the live zero 3.0x daemon blocktemplate used on the community pool.
+- If you are using this privately and don't wish to pay any amount to zeronodes until enforcement is enabled change src/Miningcore/Blockchain/Equihash/Equihashjob.cs @line 128 to "if (coin.HasZeroNodes && BlockTemplate.ZeroNodePaymentsEnabled && BlockTemplate.ZeroNodePaymentsEnforced)"
 
 ### Runtime Requirements on Windows
 
